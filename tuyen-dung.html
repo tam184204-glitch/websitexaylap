@@ -98,18 +98,10 @@
   </div>
 </section>
 </main>
-<script src="assets/data.js"></script>
+<script>document.write('<scr'+'ipt src="assets/data.js?v='+Math.floor(Date.now()/60000)+'"></scr'+'ipt>')</script>
 <script src="assets/app.js"></script>
 <script>
-const J=[
- ['Kỹ thuật','Chỉ huy trưởng công trình','Bắc Ninh','Toàn thời gian','Tổ chức, điều hành thi công tại công trường nhà ở cao tầng; quản lý tiến độ, chất lượng, an toàn; phối hợp chủ đầu tư và tư vấn giám sát.','Kỹ sư xây dựng; chứng chỉ chỉ huy trưởng; tối thiểu 5 năm kinh nghiệm công trình cao tầng.'],
- ['Kỹ thuật','Kỹ sư giám sát hiện trường (xây dựng)','Yên Phong, Bắc Ninh','Toàn thời gian','Giám sát thi công phần thô và hoàn thiện, nghiệm thu nội bộ, lập nhật ký và hồ sơ chất lượng.','Kỹ sư xây dựng dân dụng; ưu tiên có chứng chỉ giám sát; đọc tốt bản vẽ, sử dụng AutoCAD.'],
- ['PCCC','Kỹ sư MEP / PCCC','Bắc Ninh','Toàn thời gian','Triển khai bản vẽ shop, thi công và nghiệm thu hệ thống cấp thoát nước, chữa cháy, báo cháy.','Kỹ sư cơ điện, cấp thoát nước hoặc PCCC; ưu tiên có chứng chỉ chỉ huy thi công PCCC.'],
- ['PCCC','Kỹ thuật viên bảo trì PCCC','Bắc Ninh','Toàn thời gian','Bảo trì định kỳ máy bơm, tủ báo cháy, bình chữa cháy tại các chung cư, khách sạn; xử lý sự cố.','Trung cấp/cao đẳng điện, cơ khí; chịu khó, cẩn thận; được đào tạo nghiệp vụ PCCC.'],
- ['Văn phòng','Kế toán công trình','Trụ sở Kinh Bắc','Toàn thời gian','Theo dõi khối lượng, chi phí vật tư, nhân công; lập hồ sơ thanh quyết toán.','Cao đẳng/đại học kế toán; ưu tiên có kinh nghiệm kế toán xây dựng.'],
- ['Văn phòng','Cán bộ an toàn lao động','Yên Phong, Bắc Ninh','Toàn thời gian','Kiểm tra an toàn hằng ngày, huấn luyện ATLĐ cho công nhân, lập biên bản và báo cáo.','Có chứng chỉ huấn luyện an toàn lao động; ưu tiên từng làm tại công trường cao tầng.'],
- ['Công nhân','Công nhân lành nghề (cốp pha, cốt thép, nề)','Các công trường Bắc Ninh','Theo dự án','Thi công theo tổ đội tại các công trường nhà ở xã hội và chung cư.','Có tay nghề; sức khỏe tốt; được huấn luyện an toàn và cấp bảo hộ đầy đủ.'],
-];
+const J=CT.jobs.map(j=>[j.group,j.title,j.place,j.type,j.desc,j.req]);
 const G=['Tất cả',...new Set(J.map(j=>j[0]))];
 const jc=document.getElementById('jchips'),jb=document.getElementById('jobs');
 function render(k){jc.innerHTML=G.map(g=>`<button class="chip ${g===k?'on':''}">${g}<i>${g==='Tất cả'?J.length:J.filter(j=>j[0]===g).length}</i></button>`).join('');

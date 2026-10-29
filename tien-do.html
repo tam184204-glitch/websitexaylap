@@ -62,7 +62,7 @@
   </div>
 </section>
 </main>
-<script src="assets/data.js"></script>
+<script>document.write('<scr'+'ipt src="assets/data.js?v='+Math.floor(Date.now()/60000)+'"></scr'+'ipt>')</script>
 <script src="assets/app.js"></script>
 <script>
 const I=ctImg, P=CT.projects.filter(p=>p.status!=='done'), msCls={done:'d',cur:'c',next:''};
@@ -72,16 +72,7 @@ document.getElementById('pcards').innerHTML=P.map(p=>{const[c,t]=ctStatus(p.stat
   <div class="prog"><div class="prog-top"><span>${p.phase}</span><b>${p.progress}%</b></div><div class="bar"><i data-w="${p.progress}"></i></div></div>
   <ul class="ms" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:0 12px">${p.milestones.map(([s,d,t])=>`<li class="${msCls[s]}" style="padding-bottom:10px"><b>${d}</b>${t}</li>`).join('')}</ul>
 </div></div>`}).join('');
-const D=[
- ['Tháng 9/2026','Thống Nhất Smart City',['tns-4','tns-5','tns-6'],'Các tòa đã hoàn thiện mặt ngoài, tháo dỡ giàn giáo bao che. Sân vườn nội khu bắt đầu trồng cây.'],
- ['Tháng 8/2026','Thống Nhất Smart City',['tns-bg','tns-int','tns-int2'],'Lễ bàn giao cụm tòa D – E. Cư dân nhận chìa khóa căn hộ hoàn thiện cơ bản.'],
- ['Tháng 6/2026','Toàn công trường',['ct-1','ct-2','ct-3','ct-5'],'Tập kết gạch block, vệ sinh mặt bằng, thi công hoàn thiện khối đế và tầng hầm.'],
- ['Tháng 5/2026','Thống Nhất Smart City',['tns-1','tns-2','tns-3'],'Lắp lưới bao che, xây tường bao các tầng trên. Cẩu tháp hoạt động 2 ca.'],
- ['Tháng 4/2026','Nghiệm thu PCCC',['pccc-2','pccc-4','pccc-5','pccc-6'],'Cảnh sát PCCC tỉnh kiểm tra, nghiệm thu hệ thống chữa cháy khí, sprinkler, cửa chống cháy.'],
- ['Tháng 4/2025','Đoàn công tác Bộ Xây dựng',['vip-1','vip-2','vip-3'],'Lãnh đạo Bộ Xây dựng kiểm tra tiến độ, chất lượng căn hộ mẫu và làm việc với ban quản lý dự án.'],
- ['Tháng 3/2025','Cát Tường Smart City Yên Phong',['yp-ct2','yp-ct3','yp-ct6'],'Đổ bê tông sàn bằng bơm cần, thi công phần thân khối nhà ở xã hội.'],
- ['Tháng 1/2025','Cát Tường Smart City Yên Phong',['yp-air1','yp-air2','yp-air3'],'Thi công móng cọc đồng loạt khu phía Tây, dựng cẩu tháp cho các khối nhà mới.'],
-];
+const D=CT.diary.map(d=>[d.date,d.project,d.images,d.text]);
 document.getElementById('diary').innerHTML=D.map(([d,pj,ims,t],k)=>`<div class="chap rv" style="grid-template-columns:200px 1fr;padding:40px 0"><div class="side" style="top:150px"><div class="no">${pj}</div><div style="font-size:26px;font-weight:800;color:var(--blue);margin-top:6px">${d}</div></div>
 <div><p style="color:var(--ink-2);margin-bottom:16px">${t}</p><div class="gal" style="grid-template-columns:repeat(${ims.length},1fr)">${ims.map(i=>`<a href="${I(i)}" data-lb="d${k}" data-cap="${d} · ${pj}" style="aspect-ratio:4/3"><img src="${I(i)}" alt="" loading="lazy"></a>`).join('')}</div></div></div>`).join('');
 ctObserve();

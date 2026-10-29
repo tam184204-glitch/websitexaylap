@@ -11,7 +11,7 @@
 </head>
 <body data-page="du-an">
 <main id="main"><div id="root"></div></main>
-<script src="assets/data.js"></script>
+<script>document.write('<scr'+'ipt src="assets/data.js?v='+Math.floor(Date.now()/60000)+'"></scr'+'ipt>')</script>
 <script src="assets/app.js"></script>
 <script>
 const id=new URLSearchParams(location.search).get('id'), P=CT.projects;

@@ -34,7 +34,7 @@
   mn.className = 'meganav'; mn.setAttribute('aria-label', 'Menu');
   mn.innerHTML = `<a class="brand mtop" href="index.html"><img src="img/logo.png" alt=""><span>XÂY LẮP<br>CÁT TƯỜNG</span></a>
     <button class="close" aria-label="Đóng menu">×</button>
-    <div class="col-l"><h5>Tin mới nhất</h5>${news.slice(0, 4).map(n => `<a class="post" href="tien-do.html#nhat-ky"><img src="${img(n.img)}" alt="" loading="lazy"><span><small>${n.tag} · ${n.date}</small><b>${n.title}</b></span></a>`).join('')}</div>
+    <div class="col-l"><h5>Tin mới nhất</h5>${news.slice(0, 4).map(n => `<a class="post" href="tin-tuc-chi-tiet.html?id=${n.id}"><img src="${img(n.img)}" alt="" loading="lazy"><span><small>${n.tag} · ${n.date}</small><b>${n.title}</b></span></a>`).join('')}<a class="arr" href="tin-tuc.html" style="font-size:16px;margin-top:6px">Tất cả tin tức</a></div>
     <div class="col-r">
       ${menu.map(([k, t, h, im, sub]) => `<div class="grp"><a href="${h}">${t}</a><ul>${sub.map(([a, b]) => `<li><a href="${b}">${a}</a></li>`).join('')}</ul></div>`).join('')}
       <div class="grp"><a href="tien-do.html">Tiến độ</a><ul><li><a href="tien-do.html">Tổng quan tiến độ</a></li><li><a href="tien-do.html#nhat-ky">Nhật ký công trường</a></li></ul></div>
@@ -80,7 +80,7 @@
   ftr.innerHTML = `<div class="wrap">
     <div class="ftr-top">
       ${menu.map(([k, t, h, im, sub]) => `<div><h4><a href="${h}">${t}</a></h4><ul>${sub.slice(0, 4).map(([a, b]) => `<li><a href="${b}">${a}</a></li>`).join('')}</ul></div>`).join('')}
-      <div class="bold"><ul><li><a href="gioi-thieu.html#cau-chuyen">Lịch sử</a></li><li><a href="lien-he.html">Liên hệ</a></li><li><a href="tien-do.html">Tiến độ</a></li><li><a href="tien-do.html#nhat-ky">Tin tức</a></li><li><a href="nang-luc.html">Hồ sơ năng lực</a></li><li><a href="${C.web}" target="_blank" rel="noopener">Cát Tường Group</a></li></ul></div>
+      <div class="bold"><ul><li><a href="gioi-thieu.html#cau-chuyen">Lịch sử</a></li><li><a href="lien-he.html">Liên hệ</a></li><li><a href="tien-do.html">Tiến độ</a></li><li><a href="tin-tuc.html">Tin tức</a></li><li><a href="nang-luc.html">Hồ sơ năng lực</a></li><li><a href="${C.web}" target="_blank" rel="noopener">Cát Tường Group</a></li></ul></div>
     </div>
     <div class="ftr-bot">
       <img class="logo" src="img/logo.png" alt="Cát Tường">
@@ -88,7 +88,7 @@
       <div class="lg"><a href="gioi-thieu.html#thong-tin">${C.name}</a><a href="gioi-thieu.html#thong-tin">MSDN ${C.mst}</a></div>
       <div class="lg"><a href="lien-he.html">${C.address}</a></div>
       <div><div class="soc"><a href="https://zalo.me/${C.phoneRaw}" target="_blank" rel="noopener" aria-label="Zalo">Za</a><a href="tel:${C.phoneRaw}" aria-label="Gọi điện">☎</a><a href="mailto:${C.email}" aria-label="Email">@</a><a href="${C.web}" target="_blank" rel="noopener" aria-label="Website">www</a></div>
-        <div class="copy">© ${new Date().getFullYear()} Xây lắp Cát Tường · Cho đi điều bạn muốn</div><div class="note">Một số số liệu là dữ liệu mẫu, đang cập nhật.</div></div>
+        <div class="copy">© ${new Date().getFullYear()} Xây lắp Cát Tường · Cho đi điều bạn muốn</div><div class="note">Một số số liệu là dữ liệu mẫu, đang cập nhật. · <a href="admin.html">Quản trị</a></div></div>
     </div>
   </div>`;
   document.body.append(ftr);

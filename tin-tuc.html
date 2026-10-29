@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tin tức – Xây lắp Cát Tường</title>
+<meta name="description" content="Tin tức, sự kiện và hoạt động của Công ty TNHH Xây lắp Cát Tường.">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="tin-tuc">
+<main id="main">
+<section class="phero" style="min-height:56vh">
+  <img src="img/tns-bg.jpg" alt="">
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">Trang chủ</a> / Tin tức</div>
+    <h1>Tin tức</h1>
+    <p>Sự kiện, bàn giao, nghiệm thu và những câu chuyện từ công trường Cát Tường.</p>
+  </div>
+</section>
+<section class="sec">
+  <div class="wrap">
+    <div class="chips" id="chips"></div>
+    <div class="posts" id="list"></div>
+  </div>
+</section>
+</main>
+<script>document.write('<scr'+'ipt src="assets/data.js?v='+Math.floor(Date.now()/60000)+'"></scr'+'ipt>')</script>
+<script src="assets/app.js"></script>
+<script>
+const N=CT.news||[], I=ctImg, tags=['Tất cả',...new Set(N.map(n=>n.tag).filter(Boolean))];
+const card=n=>`<a class="card rv" href="tin-tuc-chi-tiet.html?id=${encodeURIComponent(n.id)}"><div class="ph"><img src="${I(n.img)}" alt="" loading="lazy"></div><div class="bd"><small>${n.tag||''} · ${n.date||''}</small><h3>${n.title}</h3>${n.summary?`<p>${n.summary}</p>`:''}</div></a>`;
+function render(k){
+  document.getElementById('chips').innerHTML=tags.map(t=>`<button class="chip ${t===k?'on':''}">${t}<i>${t==='Tất cả'?N.length:N.filter(n=>n.tag===t).length}</i></button>`).join('');
+  document.querySelectorAll('#chips .chip').forEach((b,i)=>b.onclick=()=>render(tags[i]));
+  const L=document.getElementById('list');
+  const items=N.filter(n=>k==='Tất cả'||n.tag===k);
+  L.innerHTML=items.length?items.map(card).join(''):'<p class="lead">Chưa có tin nào.</p>';
+  ctObserve(L);
+}
+render('Tất cả');
+</script>
+</body>
+</html>

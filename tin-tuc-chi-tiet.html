@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tin tức – Xây lắp Cát Tường</title>
+<meta name="description" content="Tin tức Công ty TNHH Xây lắp Cát Tường.">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="tin-tuc">
+<main id="main"><div id="root"></div></main>
+<script>document.write('<scr'+'ipt src="assets/data.js?v='+Math.floor(Date.now()/60000)+'"></scr'+'ipt>')</script>
+<script src="assets/app.js"></script>
+<script>
+const N=CT.news||[], id=new URLSearchParams(location.search).get('id'), n=N.find(x=>x.id===id), I=ctImg;
+if(!n){location.replace('tin-tuc.html')}else{
+document.title=n.title+' – Xây lắp Cát Tường';
+const others=N.filter(x=>x!==n).slice(0,3);
+document.getElementById('root').innerHTML=`
+<section class="phero"><img src="${I(n.img)}" alt=""><div class="wrap">
+  <div class="crumbs"><a href="index.html">Trang chủ</a> / <a href="tin-tuc.html">Tin tức</a></div>
+  <span class="eyebrow" style="margin-top:18px">${n.tag||''} · ${n.date||''}</span>
+  <h1 style="font-size:clamp(34px,5vw,72px);max-width:20ch">${n.title}</h1>${n.summary?`<p>${n.summary}</p>`:''}</div></section>
+<section class="sec"><div class="wrap"><article class="article rv">${n.body||''}</article>
+  <div class="btns" style="max-width:760px;margin:50px auto 0"><a class="arr" href="tin-tuc.html">Tất cả tin tức</a></div></div></section>
+${others.length?`<section class="sec soft"><div class="wrap"><h2 class="h2">Tin khác</h2><div class="grid3">${others.map(o=>`<a class="card rv" href="tin-tuc-chi-tiet.html?id=${encodeURIComponent(o.id)}"><div class="ph"><img src="${I(o.img)}" alt="" loading="lazy"></div><div class="bd"><small>${o.tag||''} · ${o.date||''}</small><h3>${o.title}</h3></div></a>`).join('')}</div></div></section>`:''}`;
+ctObserve();}
+</script>
+</body>
+</html>

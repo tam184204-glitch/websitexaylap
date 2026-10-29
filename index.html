@@ -130,13 +130,13 @@
 
 <div class="vmodal" id="vm"><button aria-label="Đóng video">×</button><video controls preload="none" poster="media/tvc.jpg"><source src="media/tvc.mp4" type="video/mp4"></video></div>
 
-<script src="assets/data.js"></script>
+<script>document.write('<scr'+'ipt src="assets/data.js?v='+Math.floor(Date.now()/60000)+'"></scr'+'ipt>')</script>
 <script src="assets/app.js"></script>
 <script>
 const {projects,news}=CT, I=ctImg;
 // tin nổi bật trên hero (thẻ trắng có nút trái/phải)
 const st=document.querySelector('#heroNews .stack');
-st.innerHTML=news.map((n,i)=>`<a class="nc ${i?'':'on'}" href="tien-do.html#nhat-ky"><img src="${I(n.img)}" alt=""><b>${n.title}</b><small>${n.tag} · ${n.date}</small></a>`).join('');
+st.innerHTML=news.map((n,i)=>`<a class="nc ${i?'':'on'}" href="tin-tuc-chi-tiet.html?id=${n.id}"><img src="${I(n.img)}" alt=""><b>${n.title}</b><small>${n.tag} · ${n.date}</small></a>`).join('');
 let ni=0;const cards=st.children,showN=k=>{cards[ni].classList.remove('on');ni=(k+cards.length)%cards.length;cards[ni].classList.add('on')};
 document.querySelector('#heroNews .pv').onclick=()=>showN(ni-1);document.querySelector('#heroNews .nx').onclick=()=>showN(ni+1);
 setInterval(()=>showN(ni+1),7000);
@@ -144,13 +144,7 @@ setInterval(()=>showN(ni+1),7000);
 document.getElementById('featured').innerHTML=projects.slice(0,9).map(p=>`<a class="pc" href="du-an-chi-tiet.html?id=${p.id}"><img src="${I(p.cover)}" alt="${p.name}" loading="lazy"><div class="t"><small>${p.location}</small><h3>${p.name}</h3></div><span class="go"></span></a>`).join('');
 document.querySelector('.car .car-track').dispatchEvent(new Event('scroll'));
 // di sản: dòng năm + thẻ đen
-const L=[['2013','Bắc Ninh','Phòng Xây lắp ra đời','Nhóm kỹ sư đầu tiên chỉ huy xây dựng các công trình do Cát Tường Group làm chủ đầu tư.','hero-crane','gioi-thieu.html#cau-chuyen'],
-['2017','Kinh Bắc, Bắc Ninh','Cát Tường New','Công trình đầu tay sau khi thành lập Công ty TNHH Xây lắp Cát Tường – nay là nơi đặt trụ sở công ty.','new-pc','du-an-chi-tiet.html?id=cat-tuong-new'],
-['2020','Bắc Ninh','Bước vào lĩnh vực PCCC','Thi công, lắp đặt, bảo trì hệ thống phòng cháy chữa cháy và cung cấp thiết bị PCCC.','pccc-bom2','kinh-nghiem.html#linh-vuc'],
-['2021','Yên Phong, Bắc Ninh','Cát Tường Smart City','Khởi công khu đô thị và nhà ở xã hội quy mô lớn cạnh KCN Yên Phong.','sc-01','du-an-chi-tiet.html?id=cat-tuong-smart-city'],
-['2023','Yên Phong, Bắc Ninh','Thủ tướng thăm công trường','Ngày 30/7/2023, Thủ tướng Phạm Minh Chính thăm và động viên công nhân Cát Tường.','ttg-1','gioi-thieu.html#cau-chuyen'],
-['2024','Võ Cường, Bắc Ninh','Cát Tường Thống Nhất','Hoàn thành 15.820 m² hệ thống PCCC và bàn giao căn hộ tòa N3 – N4.','tn-real','du-an-chi-tiet.html?id=cat-tuong-thong-nhat'],
-['2026','Kinh Bắc, Bắc Ninh','Thống Nhất Smart City','Bàn giao cụm tòa D – E ngày 08/08/2026, tiếp tục thi công các cụm còn lại.','tns-5','du-an-chi-tiet.html?id=thong-nhat-smart-city']];
+const L=CT.legacy.map(l=>[l.year,l.place,l.title,l.desc,l.img,l.link]);
 document.getElementById('yrs').innerHTML=L.map((l,i)=>`<button class="${i?'':'on'}">${l[0]}</button>`).join('');
 document.getElementById('lcards').innerHTML=L.map((l,i)=>`<a class="lcard ${i?'':'on'}" href="${l[5]}"><img src="${I(l[4])}" alt="" loading="lazy"><div class="t"><small>${l[1]}</small><h3>${l[2]}</h3><p>${l[3]}</p></div><span class="go"></span></a>`).join('');
 const yb=[...document.querySelectorAll('#yrs button')],lc=[...document.querySelectorAll('#lcards .lcard')];
