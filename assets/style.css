@@ -128,7 +128,7 @@ a:hover .go{transform:scale(1.1)}
 .sec{padding:clamp(80px,10vw,140px) 0}
 .sec.soft{background:var(--soft)}
 .sec.dark,.sec.blue{background:var(--black);color:#fff}
-.sec.dots,.dots{background-color:#fff;background-image:radial-gradient(#cfd8dd 1.2px,transparent 1.3px);background-size:22px 22px}
+/* (đã bỏ nền chấm bi) */
 .eyebrow{display:inline-block;font-size:13px;color:var(--red)}
 .dark .eyebrow,.vbg .eyebrow{color:var(--yellow)}
 .eyebrow::before{content:none}
@@ -501,3 +501,18 @@ table.tbl{width:100%;border-collapse:collapse;font-size:16px;min-width:720px}
 .dark .ms li.d::after{background:var(--yellow);border-color:var(--yellow)}
 .dark .ms li.c b{color:var(--yellow)}
 .gal{grid-auto-flow:dense}
+/* sứ mệnh 4 đối tượng & giá trị cốt lõi (theo Sổ tay văn hoá) */
+.mis{display:grid;grid-template-columns:1fr 1fr;gap:34px 40px;margin-top:10px}
+.mis div{border-top:1px solid var(--teal);padding-top:18px}
+.mis b{display:block;font-family:var(--f-mono);font-weight:400;font-size:12px;text-transform:uppercase;letter-spacing:.03em;color:var(--red);margin-bottom:10px}
+.mis p{font-size:17px;line-height:1.5}
+.vals{display:grid;grid-template-columns:repeat(3,1fr);gap:50px 40px}
+.vals div{border-top:1px solid var(--teal);padding-top:22px}
+.vals span{font-family:var(--f-mono);font-size:12px;color:var(--red)}
+.vals h3{font-size:clamp(34px,3.4vw,48px);margin:8px 0 12px;letter-spacing:-.02em}
+.vals p{font-size:17px}
+.slogan{font-family:var(--f-mono);font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--yellow);display:block;margin-bottom:22px}
+@media (max-width:900px){.mis{grid-template-columns:1fr}.vals{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.vals{grid-template-columns:1fr}}
+@media (max-width:1000px){.icon-row[style*="repeat(4"],.icon-row[style*="repeat(5"]{grid-template-columns:1fr 1fr !important}}
+@media (max-width:560px){.icon-row[style*="repeat(4"],.icon-row[style*="repeat(5"]{grid-template-columns:1fr !important}}

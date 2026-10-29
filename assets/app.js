@@ -5,7 +5,7 @@
 
   // ---------- header (kiểu Bechtel: viền đỏ trên, menu in hoa, nút tròn mở meganav) ----------
   const menu = [
-    ['gioi-thieu', 'Giới thiệu', 'gioi-thieu.html', 'ttg-2', [['Câu chuyện hình thành', 'gioi-thieu.html#cau-chuyen'], ['Thư ngỏ', 'gioi-thieu.html#thu-ngo'], ['Tầm nhìn & giá trị', 'gioi-thieu.html#gia-tri'], ['Cơ cấu tổ chức', 'gioi-thieu.html#to-chuc'], ['Đội ngũ quản lý', 'gioi-thieu.html#lanh-dao']]],
+    ['gioi-thieu', 'Giới thiệu', 'gioi-thieu.html', 'ttg-2', [['Câu chuyện hình thành', 'gioi-thieu.html#cau-chuyen'], ['Thư ngỏ', 'gioi-thieu.html#thu-ngo'], ['Sứ mệnh & giá trị cốt lõi', 'gioi-thieu.html#gia-tri'], ['Cơ cấu tổ chức', 'gioi-thieu.html#to-chuc'], ['Đội ngũ quản lý', 'gioi-thieu.html#lanh-dao']]],
     ['du-an', 'Dự án', 'du-an.html', 'sc-01', [['Tất cả dự án', 'du-an.html'], ['Đã thi công', 'du-an.html#done'], ['Đang thi công', 'du-an.html#run'], ['Chuẩn bị triển khai', 'du-an.html#plan'], ['Tiến độ công trình', 'tien-do.html']]],
     ['nang-luc', 'Năng lực', 'nang-luc.html', 'pccc-bom', [['Năng lực pháp lý', 'nang-luc.html#phap-ly'], ['Năng lực nhân sự', 'nang-luc.html#nhan-su'], ['Năng lực tài chính', 'nang-luc.html#tai-chinh'], ['Máy móc thiết bị', 'nang-luc.html#thiet-bi'], ['Hợp đồng tương tự', 'nang-luc.html#hop-dong']]],
     ['kinh-nghiem', 'Kinh nghiệm', 'kinh-nghiem.html', 'yp-ct1', [['Lĩnh vực chuyên sâu', 'kinh-nghiem.html#linh-vuc'], ['Quy trình thi công', 'kinh-nghiem.html#quy-trinh'], ['Chất lượng & an toàn', 'kinh-nghiem.html#chat-luong'], ['Hỏi đáp', 'kinh-nghiem.html#hoi-dap']]],
@@ -15,7 +15,7 @@
   hdr.className = 'hdr' + (document.body.dataset.solid ? ' light' : '');
   hdr.innerHTML = `<a class="skip" href="#main">Bỏ qua đến nội dung</a>
   <div class="wrap hdr-in">
-    <a class="brand" href="index.html"><img src="img/logo.png" alt="Logo Cát Tường"><span>XÂY LẮP<br>CÁT TƯỜNG<small>Construction</small></span></a>
+    <a class="brand" href="index.html"><img src="img/logo.png" alt="Logo Cát Tường"><span>XÂY LẮP<br>CÁT TƯỜNG</span></a>
     <ul class="nav" id="nav">
       ${menu.map(([k, t, h, im, sub]) => `<li><a href="${h}" class="${k === page || (k === 'du-an' && tienDoOn) ? 'on' : ''}">${t}</a>
         <div class="mega"><img src="${img(im)}" alt="" loading="lazy"><ul><li><h4>${t}</h4></li>${sub.map(([a, b]) => `<li><a href="${b}">${a}</a></li>`).join('')}</ul></div></li>`).join('')}
@@ -31,7 +31,7 @@
   const news = window.CT.news || [];
   const mn = document.createElement('div');
   mn.className = 'meganav'; mn.setAttribute('aria-label', 'Menu');
-  mn.innerHTML = `<a class="brand mtop" href="index.html"><img src="img/logo.png" alt=""><span>XÂY LẮP<br>CÁT TƯỜNG<small>Construction</small></span></a>
+  mn.innerHTML = `<a class="brand mtop" href="index.html"><img src="img/logo.png" alt=""><span>XÂY LẮP<br>CÁT TƯỜNG</span></a>
     <button class="close" aria-label="Đóng menu">×</button>
     <div class="col-l"><h5>Tin mới nhất</h5>${news.slice(0, 4).map(n => `<a class="post" href="tien-do.html#nhat-ky"><img src="${img(n.img)}" alt="" loading="lazy"><span><small>${n.tag} · ${n.date}</small><b>${n.title}</b></span></a>`).join('')}</div>
     <div class="col-r">
@@ -87,7 +87,7 @@
       <div class="lg"><a href="gioi-thieu.html#thong-tin">${C.name}</a><a href="gioi-thieu.html#thong-tin">MSDN ${C.mst}</a></div>
       <div class="lg"><a href="lien-he.html">${C.address}</a></div>
       <div><div class="soc"><a href="https://zalo.me/${C.phoneRaw}" target="_blank" rel="noopener" aria-label="Zalo">Za</a><a href="tel:${C.phoneRaw}" aria-label="Gọi điện">☎</a><a href="mailto:${C.email}" aria-label="Email">@</a><a href="${C.web}" target="_blank" rel="noopener" aria-label="Website">www</a></div>
-        <div class="copy">© ${new Date().getFullYear()} Xây lắp Cát Tường</div><div class="note">Một số số liệu là dữ liệu mẫu, đang cập nhật.</div></div>
+        <div class="copy">© ${new Date().getFullYear()} Xây lắp Cát Tường · Cho đi điều bạn muốn</div><div class="note">Một số số liệu là dữ liệu mẫu, đang cập nhật.</div></div>
     </div>
   </div>`;
   document.body.append(ftr);
