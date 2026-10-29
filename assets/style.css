@@ -3,7 +3,9 @@
   --navy:#071a33;--navy-2:#0c2a52;--blue:#0b5cad;--sky:#1d9bd1;--accent:#f2b705;
   --ink:#0f172a;--ink-2:#334155;--muted:#64748b;--line:#e2e8f0;--paper:#ffffff;--soft:#f3f6fa;
   --radius:4px;--max:1280px;--gut:clamp(16px,4vw,48px);
-  --font:'Be Vietnam Pro',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --font:'Inter Tight',ui-sans-serif,system-ui,sans-serif;
+  --f-head:'Hanken Grotesk',ui-sans-serif,system-ui,sans-serif;
+  --f-mono:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -422,3 +424,55 @@ table.tbl{width:100%;border-collapse:collapse;font-size:15px;min-width:720px}
 .icon-row p{font-size:15px;color:var(--muted)}
 .dark .icon-row p{color:rgba(255,255,255,.7)}
 @media (max-width:820px){.icon-row{grid-template-columns:1fr}}
+
+/* ---------- typography theo hệ chữ Bechtel ----------
+   Apfel Grotezk → Hanken Grotesk (tiêu đề), Neue Haas Grotesk Display → Inter Tight (nội dung),
+   Necto Mono → Geist Mono (nhãn, nút). Font gốc không có dấu tiếng Việt nên dùng font tương đương. */
+body{font-size:18px;letter-spacing:.01em}
+.hero h1,.phero h1,.h2,.statement,.chap h2,.h3,.stat b,.tl-pane .yr,.chap .side .yr,.card h3,.tile h3,.brand,.org .node b,.step h3,.icon-row h3,.acc summary,blockquote.q,.dropcap::first-letter{font-family:var(--f-head)}
+.hero h1{font-weight:400;font-size:clamp(42px,7.6vw,120px);line-height:.98;letter-spacing:-.025em;max-width:13ch}
+.phero h1{font-weight:400;font-size:clamp(40px,6.4vw,96px);line-height:1;letter-spacing:-.025em}
+.h2,.statement{font-weight:400;letter-spacing:-.02em;line-height:1.04}
+.h2{font-size:clamp(34px,4.6vw,68px)}
+.statement{font-size:clamp(32px,5vw,76px)}
+.statement em{font-style:normal}
+.chap h2{font-weight:500;letter-spacing:-.015em}
+.h3,.card h3,.tile h3,.step h3,.icon-row h3{font-weight:600;letter-spacing:-.01em}
+.stat b,.tl-pane .yr,.chap .side .yr{font-weight:400;letter-spacing:-.03em}
+.brand{font-weight:700}
+blockquote.q{font-weight:400}
+.org .node b{font-weight:600;letter-spacing:.02em}
+.acc summary{font-weight:500;font-size:20px}
+/* nhãn & nút: mono in hoa như Necto Mono */
+.eyebrow,.btn,.crumbs,.card small,.tile .n,.hero-news small,.chip,.facts dt,.tbl th,.car-count,.ms b,.chap .side .no,.subnav a,.mega h4,.ftr h4,.link,.hdr .cta,.tag,.badge-sample,.tl-years button,.prog-top,.form label,.mbar a,.chap figcaption,.note,.stat b sup,.tbl td::before,.step::before{font-family:var(--f-mono);font-weight:400;text-transform:uppercase;letter-spacing:.04em}
+.eyebrow{font-size:12px;letter-spacing:.08em}
+.eyebrow::before{width:22px}
+.btn{font-size:14px;letter-spacing:.06em;padding:16px 26px}
+.link{font-size:14px;letter-spacing:.06em}
+.hdr .cta{font-size:13px}
+.tag{font-size:11px;letter-spacing:.05em}
+.chip{font-size:13px}
+.prog-top{font-size:12px}
+.prog-top span{text-transform:none;font-family:var(--font);font-size:14px;letter-spacing:0}
+.chap figcaption{text-transform:none;font-size:13px;letter-spacing:0}
+.note{text-transform:none;letter-spacing:0}
+.stat b sup{font-size:.32em;text-transform:none;margin-left:4px}
+.step::before{text-transform:none}
+.nav>li>a{font-weight:500;font-size:16px;letter-spacing:0}
+.lead{font-size:clamp(18px,1.5vw,21px);line-height:1.55}
+.card h3{font-size:22px}
+.tl-years button{font-size:15px}
+.mbar a{font-size:10px;letter-spacing:.04em}
+@media (max-width:760px){
+  body{font-size:17px}
+  .hero h1{font-size:clamp(40px,11.5vw,52px)}
+  .phero h1{font-size:clamp(36px,10vw,46px)}
+  .h2{font-size:clamp(30px,8.4vw,40px)}
+  .statement{font-size:clamp(28px,8vw,38px)}
+  .btn{font-size:13px}
+}
+.hero h1{font-size:clamp(42px,6.4vw,104px);max-width:14ch}
+.hero-in{padding-top:120px}
+.hero .lead,.cta-band .lead{color:rgba(255,255,255,.92)}
+@media (max-width:760px){.hero .btns .btn{flex:1 1 100%}.hero h1{font-size:clamp(38px,10.5vw,48px)}}
+.hero h1,.hero .lead{text-shadow:0 2px 24px rgba(4,16,31,.45)}
