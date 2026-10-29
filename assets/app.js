@@ -17,7 +17,7 @@
   <div class="wrap hdr-in">
     <a class="brand" href="index.html"><img src="img/logo.png" alt="Logo Cát Tường"><span>XÂY LẮP CÁT TƯỜNG<small>Construction · Since 2013</small></span></a>
     <ul class="nav" id="nav">
-      ${menu.map(([k, t, h, im, sub]) => `<li><a href="${h}" class="${k === page ? 'on' : ''}">${t}</a>
+      ${menu.map(([k, t, h, im, sub]) => `<li><a href="${h}" class="${k === page ? 'on' : ''}">${t}</a><button class="sub-t" aria-label="Mở mục ${t}">+</button>
         <div class="mega"><img src="${img(im)}" alt="" loading="lazy"><ul><li><h4>${t}</h4></li>${sub.map(([a, b]) => `<li><a href="${b}">${a}</a></li>`).join('')}</ul></div></li>`).join('')}
       <li><a href="lien-he.html" class="${page === 'lien-he' ? 'on' : ''}">Liên hệ</a></li>
     </ul>
@@ -27,6 +27,21 @@
   document.body.prepend(hdr);
   hdr.querySelector('.burger').onclick = () => document.body.classList.toggle('menu-open');
   hdr.querySelectorAll('.nav a').forEach(a => a.addEventListener('click', () => document.body.classList.remove('menu-open')));
+  hdr.querySelectorAll('.sub-t').forEach(b => b.onclick = () => { const li = b.parentElement; li.classList.toggle('open'); b.textContent = li.classList.contains('open') ? '−' : '+'; });
+
+  // thanh hành động cố định trên điện thoại
+  const mbar = document.createElement('nav');
+  mbar.className = 'mbar'; mbar.setAttribute('aria-label', 'Liên hệ nhanh');
+  mbar.innerHTML = `<a href="tel:${C.phoneRaw}"><span>☎</span>Gọi ngay</a><a href="https://zalo.me/${C.phoneRaw}" target="_blank" rel="noopener"><span>💬</span>Zalo</a><a href="du-an.html"><span>🏗️</span>Dự án</a><a href="lien-he.html" class="hi"><span>📄</span>Nhận hồ sơ</a>`;
+  document.body.append(mbar);
+
+  // bảng → dạng thẻ trên điện thoại: gắn nhãn cột cho từng ô
+  window.ctLabelTables = () => document.querySelectorAll('table.tbl').forEach(t => {
+    const hs = [...t.querySelectorAll('thead th')].map(th => th.textContent.trim());
+    const ti = hs[0] === 'STT' ? 1 : 0;
+    t.querySelectorAll('tbody tr').forEach(tr => [...tr.children].forEach((td, i) => { td.dataset.l = hs[i] || ''; if (i === ti) td.classList.add('tt'); if (i < ti) td.classList.add('stt'); }));
+  });
+  ctLabelTables();
   const onScroll = () => hdr.classList.toggle('solid', scrollY > 60);
   addEventListener('scroll', onScroll, { passive: true }); onScroll();
 

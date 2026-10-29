@@ -331,6 +331,83 @@ table.tbl{width:100%;border-collapse:collapse;font-size:15px;min-width:720px}
 .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.hero-bg img{animation:none}html{scroll-behavior:auto}}
 
+/* ---------- giao diện điện thoại ---------- */
+.sub-t,.mbar{display:none}
+@media (max-width:1040px){
+  .nav>li{display:flex;flex-wrap:wrap;align-items:center}
+  .nav>li>a{flex:1}
+  .sub-t{display:block;width:48px;height:48px;font-size:26px;color:var(--accent);border-bottom:1px solid rgba(255,255,255,.12)}
+  .nav>li.open .mega{display:block;position:static;transform:none;opacity:1;visibility:visible;width:100%;background:transparent;box-shadow:none;color:#fff}
+  .nav>li.open .mega img,.nav>li.open .mega h4{display:none}
+  .nav>li.open .mega ul{padding:4px 0 10px 14px}
+  .nav>li.open .mega li a{border-color:rgba(255,255,255,.08);color:rgba(255,255,255,.85);padding:12px 0}
+  .menu-open{overflow:hidden}
+}
+@media (max-width:760px){
+  body{font-size:16px;padding-bottom:64px}
+  .hdr-in{height:64px;gap:12px}
+  .nav{top:64px}
+  .brand img{width:38px;height:38px}
+  .brand{font-size:15px}
+  .subnav{top:64px}
+  .subnav a{padding:14px 12px;font-size:14px}
+  .mbar{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;left:0;right:0;bottom:0;z-index:150;background:#fff;border-top:1px solid var(--line);box-shadow:0 -6px 20px rgba(15,23,42,.1);padding-bottom:env(safe-area-inset-bottom)}
+  .mbar a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;height:60px;font-size:12px;font-weight:600;color:var(--ink-2)}
+  .mbar a span{font-size:19px;line-height:1}
+  .mbar a.hi{background:var(--accent);color:var(--navy)}
+  .lb{z-index:400}
+  .hero{min-height:92svh}
+  .hero h1{font-size:clamp(34px,10vw,44px);max-width:none}
+  .hero .btns .btn{flex:1;justify-content:center}
+  .phero{min-height:56svh}
+  .phero .wrap{padding-top:96px;padding-bottom:36px}
+  .phero h1{font-size:clamp(30px,8.6vw,40px)}
+  .sec{padding:56px 0}
+  .sec-head{margin-bottom:28px}
+  .h2{font-size:clamp(26px,7.4vw,34px)}
+  .statement{font-size:clamp(24px,7vw,32px)}
+  .stats{margin-top:36px}
+  .stat b{font-size:34px}
+  .btn{padding:14px 20px}
+  .card .bd{padding:16px 2px}
+  .grid3,.grid4{gap:20px}
+  /* các khối dùng style inline cần ép về 1 cột */
+  .chap{grid-template-columns:1fr !important;padding:36px 0 !important;gap:14px}
+  .chap .side{position:static}
+  .chap .side .yr{font-size:52px}
+  .gal{grid-template-columns:1fr 1fr !important}
+  .gal a{aspect-ratio:1 !important}
+  .gal a.w{grid-column:span 2;grid-row:auto;aspect-ratio:4/3 !important}
+  .pcard .bd{padding:20px}
+  .pcard>img{min-height:0;aspect-ratio:16/9}
+  .ms[style*="grid"]{display:block !important}
+  .facts{grid-template-columns:1fr}
+  .tl-years{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+  .tl-years button{padding:10px 14px;font-size:16px}
+  .car-ctl button{width:42px;height:42px}
+  .posts .card:first-child h3{font-size:22px}
+  .docs{gap:12px}
+  .doc{padding:8px}.doc b{font-size:13px}.doc span{display:none}
+  .org .node{padding:12px}
+  .org .row{grid-template-columns:1fr;gap:10px;padding-top:14px}
+  .org .row2{max-width:none}
+  .steps .step{padding:22px 20px}
+  .acc summary{font-size:16px;padding:18px 36px 18px 0}
+  /* bảng thành thẻ */
+  .tbl-wrap{border:0;background:transparent;overflow:visible}
+  table.tbl{min-width:0}
+  .tbl thead{display:none}
+  .tbl,.tbl tbody,.tbl tr,.tbl td{display:block;width:100%}
+  .tbl tr{background:#fff;border:1px solid var(--line);border-left:4px solid var(--blue);margin-bottom:12px;padding:10px 14px}
+  .tbl tr:nth-child(even) td,.tbl tr:hover td{background:transparent}
+  .tbl td{border:0;padding:5px 0;display:grid;grid-template-columns:42% 1fr;gap:10px;text-align:left !important;font-size:14px}
+  .tbl td::before{content:attr(data-l);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:2px}
+  .tbl td.stt{display:none}
+  .tbl td.tt{grid-template-columns:1fr;font-size:16px;padding-bottom:8px;border-bottom:1px solid var(--line);margin-bottom:4px}
+  .tbl td.tt::before{display:none}
+  .ftr{padding:56px 0 24px}
+  .ftr-top{gap:28px}
+}
 .cta-band{position:relative;color:#fff;overflow:hidden}
 .cta-band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .cta-band::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,26,51,.95) 20%,rgba(7,26,51,.4));z-index:1}
