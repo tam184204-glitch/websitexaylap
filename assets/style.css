@@ -519,3 +519,6 @@ table.tbl{width:100%;border-collapse:collapse;font-size:16px;min-width:720px}
 /* nhãn in hoa: chữ sans đậm thay cho chữ đơn cách */
 .eyebrow,.meganav h5,.mega h4,.pc small,.lcard small,.card small,.tile .n,.hero-news .nc small,.crumbs,.subnav a,.chip,.tag,.badge-sample,.facts dt,.tbl th,.form label,.mis b,.vals span,.ms li b,.chap .side .no,.chap figcaption,blockquote.q cite,.doc span,.pill-list span,.btn,.car-count,.legacy .yrs button,.tl-years button,.step::before,.org .node b,.meganav .post small,.mbar a,.lb p,.tbl td::before,.stat b sup,.prog-top b{font-weight:600;letter-spacing:.06em}
 .legacy .yrs button,.car-count,.prog-top b,.step::before{letter-spacing:.02em}
+.ftr-top{grid-template-columns:repeat(6,1fr)}
+@media (max-width:1000px){.ftr-top{grid-template-columns:1fr 1fr}}
+@media (max-width:1240px) and (min-width:1101px){.nav>li>a{padding:30px 14px;font-size:16px}}

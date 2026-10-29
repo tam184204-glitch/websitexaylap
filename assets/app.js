@@ -9,6 +9,7 @@
     ['du-an', 'Dự án', 'du-an.html', 'sc-01', [['Tất cả dự án', 'du-an.html'], ['Đã thi công', 'du-an.html#done'], ['Đang thi công', 'du-an.html#run'], ['Chuẩn bị triển khai', 'du-an.html#plan'], ['Tiến độ công trình', 'tien-do.html']]],
     ['nang-luc', 'Năng lực', 'nang-luc.html', 'pccc-bom', [['Năng lực pháp lý', 'nang-luc.html#phap-ly'], ['Năng lực nhân sự', 'nang-luc.html#nhan-su'], ['Năng lực tài chính', 'nang-luc.html#tai-chinh'], ['Máy móc thiết bị', 'nang-luc.html#thiet-bi'], ['Hợp đồng tương tự', 'nang-luc.html#hop-dong']]],
     ['kinh-nghiem', 'Kinh nghiệm', 'kinh-nghiem.html', 'yp-ct1', [['Lĩnh vực chuyên sâu', 'kinh-nghiem.html#linh-vuc'], ['Quy trình thi công', 'kinh-nghiem.html#quy-trinh'], ['Chất lượng & an toàn', 'kinh-nghiem.html#chat-luong'], ['Hỏi đáp', 'kinh-nghiem.html#hoi-dap']]],
+    ['tuyen-dung', 'Tuyển dụng', 'tuyen-dung.html', 'career-3', [['Vì sao chọn Cát Tường', 'tuyen-dung.html#vi-sao'], ['Vị trí đang tuyển', 'tuyen-dung.html#vi-tri'], ['Đời sống Cát Tường', 'tuyen-dung.html#doi-song'], ['Ứng tuyển', 'tuyen-dung.html#ung-tuyen']]],
   ];
   const tienDoOn = page === 'tien-do';
   const hdr = document.createElement('header');
