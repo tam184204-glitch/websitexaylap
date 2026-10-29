@@ -14,7 +14,9 @@
 <script src="assets/data.js"></script>
 <script src="assets/app.js"></script>
 <script>
-const id=new URLSearchParams(location.search).get('id'), P=CT.projects, p=P.find(x=>x.id===id)||P[0], I=ctImg, [sc,st]=ctStatus(p.status);
+const id=new URLSearchParams(location.search).get('id'), P=CT.projects;
+if(!P.find(x=>x.id===id)) location.replace('du-an.html');
+const p=P.find(x=>x.id===id)||P[0], I=ctImg, [sc,st]=ctStatus(p.status);
 document.title=p.name+' – Xây lắp Cát Tường';
 const msCls={done:'d',cur:'c',next:''};
 const others=P.filter(x=>x.id!==p.id).slice(0,3);
@@ -43,7 +45,7 @@ document.getElementById('root').innerHTML=`
   </div>
 </div></section>
 
-<section class="sec soft"><div class="wrap grid2" style="align-items:start">
+<section class="sec soft"><div class="wrap ${p.log?'grid2':''}" style="align-items:start">
   <div class="rv"><span class="eyebrow" style="color:var(--blue)">Mốc tiến độ</span><h2 class="h2" style="font-size:clamp(28px,3vw,42px)">Từ khởi công đến bàn giao</h2>
     <ul class="ms">${p.milestones.map(([s,d,t])=>`<li class="${msCls[s]}"><b>${d}${s==='cur'?' · Đang thực hiện':''}</b>${t}</li>`).join('')}</ul></div>
   ${p.log?`<div class="rv"><span class="eyebrow" style="color:var(--blue)">Nhật ký công trường</span><div style="display:grid;gap:16px;margin-top:20px">${p.log.map(([d,im,t])=>`<a href="${I(im)}" data-lb="log" data-cap="${d} – ${t}" style="display:grid;grid-template-columns:140px 1fr;gap:16px;align-items:center;background:#fff;padding:10px"><img src="${I(im)}" alt="" loading="lazy" style="aspect-ratio:4/3;object-fit:cover"><span><b style="color:var(--blue)">${d}</b><br>${t}</span></a>`).join('')}</div></div>`:''}
