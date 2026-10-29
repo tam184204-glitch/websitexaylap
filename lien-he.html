@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Liên hệ – Xây lắp Cát Tường</title>
+<meta name="description" content="Liên hệ Công ty TNHH Xây lắp Cát Tường để nhận hồ sơ năng lực và báo giá thi công.">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="lien-he">
+<main id="main">
+<section class="phero" style="min-height:48vh">
+  <img src="img/hero-dusk.jpg" alt="">
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">Trang chủ</a> / Liên hệ</div>
+    <span class="eyebrow">Liên hệ</span>
+    <h1>Hãy bắt đầu công trình tiếp theo cùng nhau</h1>
+  </div>
+</section>
+<section class="sec">
+  <div class="wrap grid2" style="align-items:start">
+    <div class="rv">
+      <h2 class="h3">Gửi yêu cầu</h2>
+      <p style="color:var(--muted);margin-bottom:24px">Điền thông tin, chúng tôi sẽ phản hồi trong 24 giờ làm việc.</p>
+      <form class="form" id="f">
+        <div class="f"><label for="n">Họ và tên</label><input id="n" required></div>
+        <div class="f"><label for="p">Điện thoại</label><input id="p" type="tel" required></div>
+        <div class="f"><label for="c">Công ty</label><input id="c"></div>
+        <div class="f"><label for="t">Nhu cầu</label><select id="t"><option>Nhận hồ sơ năng lực</option><option>Báo giá thi công xây dựng</option><option>Báo giá thi công PCCC</option><option>Bảo trì hệ thống PCCC</option><option>Mua thiết bị PCCC</option><option>Khác</option></select></div>
+        <div class="f full"><label for="m">Nội dung</label><textarea id="m" rows="5" placeholder="Quy mô công trình, địa điểm, thời gian dự kiến..."></textarea></div>
+        <div class="f full"><button class="btn btn-d" type="submit"><span class="arrow">Gửi yêu cầu qua email</span></button></div>
+      </form>
+    </div>
+    <div class="rv">
+      <dl class="facts" style="grid-template-columns:1fr">
+        <div><dt>Trụ sở</dt><dd>Tầng 3, chung cư Cát Tường New, đường Lý Thái Tổ, phường Kinh Bắc, tỉnh Bắc Ninh</dd></div>
+        <div><dt>Hotline</dt><dd><a href="tel:0963813680" style="font-size:24px;color:var(--blue)">0963 813 680</a></dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:congtycattuongbn@cattuonggroup.vn">congtycattuongbn@cattuonggroup.vn</a></dd></div>
+        <div><dt>Giờ làm việc</dt><dd>Thứ 2 – Thứ 7 · 8:00 – 17:30</dd></div>
+        <div><dt>Tập đoàn</dt><dd><a href="https://cattuonggroup.vn" target="_blank" rel="noopener">cattuonggroup.vn ↗</a></dd></div>
+      </dl>
+      <iframe title="Bản đồ" src="https://www.google.com/maps?q=Chung+c%C6%B0+C%C3%A1t+T%C6%B0%E1%BB%9Dng+New+L%C3%BD+Th%C3%A1i+T%E1%BB%95+B%E1%BA%AFc+Ninh&output=embed" style="width:100%;aspect-ratio:4/3;border:0;margin-top:24px" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+</main>
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+<script>
+document.getElementById('f').onsubmit=e=>{e.preventDefault();const v=id=>document.getElementById(id).value;
+location.href='mailto:'+CT.company.email+'?subject='+encodeURIComponent('[Website] '+v('t')+' – '+v('n'))+'&body='+encodeURIComponent(`Họ tên: ${v('n')}\nĐiện thoại: ${v('p')}\nCông ty: ${v('c')}\nNhu cầu: ${v('t')}\n\n${v('m')}`);};
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chi tiết dự án – Xây lắp Cát Tường</title>
+<meta name="description" content="Thông tin chi tiết dự án do Công ty TNHH Xây lắp Cát Tường thi công.">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="du-an">
+<main id="main"><div id="root"></div></main>
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+<script>
+const id=new URLSearchParams(location.search).get('id'), P=CT.projects, p=P.find(x=>x.id===id)||P[0], I=ctImg, [sc,st]=ctStatus(p.status);
+document.title=p.name+' – Xây lắp Cát Tường';
+const msCls={done:'d',cur:'c',next:''};
+const others=P.filter(x=>x.id!==p.id).slice(0,3);
+document.getElementById('root').innerHTML=`
+<section class="phero" style="min-height:78vh"><img src="${I(p.cover)}" alt="${p.name}"><div class="wrap">
+  <div class="crumbs"><a href="index.html">Trang chủ</a> / <a href="du-an.html">Dự án</a> / ${p.name}</div>
+  <span class="tag ${sc}">${st}</span>
+  <h1>${p.name}</h1><p>${p.summary}</p></div></section>
+
+<section class="sec"><div class="wrap grid2" style="align-items:start">
+  <div class="rv">
+    <span class="eyebrow" style="color:var(--blue)">${p.type}</span>
+    <h2 class="h2" style="font-size:clamp(28px,3vw,42px)">Câu chuyện công trình</h2>
+    ${p.story.map(s=>`<p class="lead" style="margin-bottom:16px">${s}</p>`).join('')}
+  </div>
+  <div class="rv">
+    <dl class="facts">
+      <div><dt>Chủ đầu tư</dt><dd>${p.owner}</dd></div>
+      <div><dt>Địa điểm</dt><dd>${p.location}</dd></div>
+      <div style="grid-column:1/-1"><dt>Phạm vi công việc</dt><dd>${p.scope}</dd></div>
+      <div><dt>Quy mô</dt><dd>${p.scale}</dd></div>
+      <div><dt>Thời gian</dt><dd>${p.time}</dd></div>
+      <div style="grid-column:1/-1"><dt>Giai đoạn hiện tại</dt><dd>${p.phase}</dd></div>
+    </dl>
+    <div class="prog" style="margin-top:24px"><div class="prog-top"><span>Tiến độ tổng thể</span><b>${p.progress}%</b></div><div class="bar"><i data-w="${p.progress}"></i></div></div>
+  </div>
+</div></section>
+
+<section class="sec soft"><div class="wrap grid2" style="align-items:start">
+  <div class="rv"><span class="eyebrow" style="color:var(--blue)">Mốc tiến độ</span><h2 class="h2" style="font-size:clamp(28px,3vw,42px)">Từ khởi công đến bàn giao</h2>
+    <ul class="ms">${p.milestones.map(([s,d,t])=>`<li class="${msCls[s]}"><b>${d}${s==='cur'?' · Đang thực hiện':''}</b>${t}</li>`).join('')}</ul></div>
+  ${p.log?`<div class="rv"><span class="eyebrow" style="color:var(--blue)">Nhật ký công trường</span><div style="display:grid;gap:16px;margin-top:20px">${p.log.map(([d,im,t])=>`<a href="${I(im)}" data-lb="log" data-cap="${d} – ${t}" style="display:grid;grid-template-columns:140px 1fr;gap:16px;align-items:center;background:#fff;padding:10px"><img src="${I(im)}" alt="" loading="lazy" style="aspect-ratio:4/3;object-fit:cover"><span><b style="color:var(--blue)">${d}</b><br>${t}</span></a>`).join('')}</div></div>`:''}
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="sec-head"><div><span class="eyebrow" style="color:var(--blue)">Thư viện ảnh</span><h2 class="h2" style="font-size:clamp(28px,3vw,42px)">Hình ảnh dự án</h2></div><span style="color:var(--muted)">${p.images.length} ảnh · bấm để phóng to</span></div>
+  <div class="gal rv">${p.images.map((im,i)=>`<a class="${i===0?'w':''}" href="${I(im)}" data-lb="g" data-cap="${p.name}"><img src="${I(im)}" alt="" loading="lazy"></a>`).join('')}</div>
+</div></section>
+
+<section class="sec soft"><div class="wrap">
+  <div class="sec-head"><h2 class="h2" style="font-size:clamp(28px,3vw,42px)">Dự án khác</h2><a class="link" href="du-an.html"><span class="arrow">Tất cả dự án</span></a></div>
+  <div class="grid3">${others.map(ctCard).join('')}</div>
+</div></section>`;
+ctObserve();
+</script>
+</body>
+</html>

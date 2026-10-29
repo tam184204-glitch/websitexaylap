@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dự án – Xây lắp Cát Tường</title>
+<meta name="description" content="Các dự án đã thi công, đang thi công và chuẩn bị triển khai của Công ty TNHH Xây lắp Cát Tường.">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="du-an">
+<main id="main">
+<section class="phero">
+  <img src="img/sc-03.jpg" alt="Phố thương mại Cát Tường Smart City">
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">Trang chủ</a> / Dự án</div>
+    <span class="eyebrow">Dự án</span>
+    <h1>Mỗi công trình, một câu chuyện</h1>
+    <p>Nhà ở xã hội, chung cư thương mại, khách sạn, khu đô thị – và hệ thống PCCC bảo vệ tất cả chúng. Lọc theo trạng thái để xem các dự án đã thi công, đang thi công và sắp triển khai.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="chips" id="chips"></div>
+    <div class="grid3" id="list"></div>
+  </div>
+</section>
+
+<section class="sec dark">
+  <div class="wrap grid2">
+    <div class="rv"><span class="eyebrow">Trên bản đồ</span><h2 class="h2">Tập trung tại Bắc Ninh</h2><p class="lead">Phần lớn các dự án nằm trong bán kính 25 km quanh trụ sở – giúp ban chỉ huy điều phối nhân lực, máy móc giữa các công trường chỉ trong vòng 30 phút.</p></div>
+    <div class="rv"><iframe title="Bản đồ trụ sở Xây lắp Cát Tường" src="https://www.google.com/maps?q=Chung+c%C6%B0+C%C3%A1t+T%C6%B0%E1%BB%9Dng+New+L%C3%BD+Th%C3%A1i+T%E1%BB%95+B%E1%BA%AFc+Ninh&output=embed" style="width:100%;aspect-ratio:4/3;border:0" loading="lazy"></iframe></div>
+  </div>
+</section>
+</main>
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+<script>
+const P=CT.projects, F=[['all','Tất cả'],['done','Đã thi công'],['run','Đang thi công'],['plan','Chuẩn bị triển khai']];
+const chips=document.getElementById('chips'), list=document.getElementById('list');
+function render(){
+  const k=(location.hash||'#all').slice(1);
+  chips.innerHTML=F.map(([v,t])=>`<a class="chip ${v===k?'on':''}" href="#${v}">${t}<i>${v==='all'?P.length:P.filter(p=>p.status===v).length}</i></a>`).join('');
+  list.innerHTML=P.filter(p=>k==='all'||p.status===k).map(ctCard).join('');
+  ctObserve(list);
+}
+addEventListener('hashchange',render); render();
+</script>
+</body>
+</html>

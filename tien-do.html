@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tiến độ công trình – Xây lắp Cát Tường</title>
+<meta name="description" content="Tiến độ các công trình đang thi công và nhật ký công trường của Công ty TNHH Xây lắp Cát Tường.">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="tien-do">
+<main id="main">
+<section class="phero">
+  <img src="img/yp-ct2.jpg" alt="Đổ bê tông sàn bằng bơm cần tại Yên Phong">
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">Trang chủ</a> / Tiến độ công trình</div>
+    <span class="eyebrow">Cập nhật tháng 10/2026</span>
+    <h1>Tiến độ công trình</h1>
+    <p>Minh bạch tiến độ là cách chúng tôi giữ lời hứa với chủ đầu tư và người mua nhà. Số liệu được ban chỉ huy công trường tổng hợp hằng tháng. <span class="badge-sample">Số liệu mẫu</span></p>
+  </div>
+</section>
+
+<section class="sec soft">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="eyebrow" style="color:var(--blue)">Tổng quan</span><h2 class="h2">Các dự án đang triển khai</h2></div></div>
+    <div id="pcards"></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="eyebrow" style="color:var(--blue)">Tuần 43 · 2026</span><h2 class="h2">Báo cáo nhanh tại công trường</h2></div><span class="badge-sample">Số liệu mẫu</span></div>
+    <div class="tbl-wrap rv">
+      <table class="tbl"><thead><tr><th>Dự án</th><th>Hạng mục chính trong tuần</th><th class="num">Nhân lực / ngày</th><th class="num">Bê tông (m³)</th><th>An toàn</th><th>So với kế hoạch</th></tr></thead>
+      <tbody>
+        <tr><td><b>Thống Nhất Smart City</b></td><td>Trát ngoài cụm C; đổ sàn tầng 8 cụm F; lắp ống PCCC tầng hầm 2</td><td class="num">186</td><td class="num">420</td><td>0 sự cố</td><td><span class="tag done">Đúng tiến độ</span></td></tr>
+        <tr><td><b>Cát Tường Smart City Yên Phong</b></td><td>Xây tường bao khối M3; lắp kính shophouse dãy SH-04; trải thảm nhựa đường D7</td><td class="num">142</td><td class="num">265</td><td>0 sự cố</td><td><span class="tag run">Chậm 4 ngày (mưa)</span></td></tr>
+        <tr><td><b>Đại Hưng Phát</b></td><td>Khảo sát địa chất bổ sung; rào tôn công trường; làm đường công vụ</td><td class="num">18</td><td class="num">—</td><td>0 sự cố</td><td><span class="tag done">Đúng tiến độ</span></td></tr>
+        <tr><td><b>Bảo trì PCCC (Korea, TNT, Eco, New)</b></td><td>Kiểm tra định kỳ quý IV: máy bơm, tủ báo cháy, bình chữa cháy</td><td class="num">8</td><td class="num">—</td><td>0 sự cố</td><td><span class="tag done">Hoàn thành 75%</span></td></tr>
+      </tbody></table>
+    </div>
+  </div>
+</section>
+
+<section class="sec soft" id="nhat-ky">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="eyebrow" style="color:var(--blue)">Nhật ký công trường</span><h2 class="h2">Từng tháng, từng tầng sàn</h2></div><p class="lead" style="max-width:48ch">Hình ảnh thực tế ghi lại tại các công trường – bấm vào ảnh để xem lớn.</p></div>
+    <div id="diary"></div>
+  </div>
+</section>
+
+<section class="sec dark">
+  <div class="wrap">
+    <span class="eyebrow">Cách chúng tôi kiểm soát tiến độ</span>
+    <h2 class="h2">Ba lớp theo dõi</h2>
+    <div class="icon-row" style="margin-top:40px">
+      <div class="rv"><div class="ic">📋</div><h3>Hằng ngày</h3><p>Chỉ huy trưởng họp giao ban 7h sáng tại công trường, cập nhật nhật ký thi công và nhân lực, máy móc trong ngày.</p></div>
+      <div class="rv"><div class="ic">📊</div><h3>Hằng tuần</h3><p>Phòng Kế hoạch – Kỹ thuật so sánh khối lượng thực tế với kế hoạch tổng, xác định hạng mục găng và phương án bù tiến độ.</p></div>
+      <div class="rv"><div class="ic">🏁</div><h3>Hằng tháng</h3><p>Ban lãnh đạo cùng chủ đầu tư rà soát mốc tiến độ, nghiệm thu giai đoạn và lập hồ sơ thanh toán.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+<script>
+const I=ctImg, P=CT.projects.filter(p=>p.status!=='done'), msCls={done:'d',cur:'c',next:''};
+document.getElementById('pcards').innerHTML=P.map(p=>{const[c,t]=ctStatus(p.status);return `<div class="pcard rv"><img src="${I(p.cover)}" alt="${p.name}" loading="lazy"><div class="bd">
+  <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center"><h3 class="h3" style="margin:0"><a href="du-an-chi-tiet.html?id=${p.id}">${p.name}</a></h3><span class="tag ${c}">${t}</span></div>
+  <p style="color:var(--muted);margin-top:4px">${p.location} · ${p.time}</p>
+  <div class="prog"><div class="prog-top"><span>${p.phase}</span><b>${p.progress}%</b></div><div class="bar"><i data-w="${p.progress}"></i></div></div>
+  <ul class="ms" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:0 12px">${p.milestones.map(([s,d,t])=>`<li class="${msCls[s]}" style="padding-bottom:10px"><b>${d}</b>${t}</li>`).join('')}</ul>
+</div></div>`}).join('');
+const D=[
+ ['Tháng 9/2026','Thống Nhất Smart City',['tns-4','tns-5','tns-6'],'Các tòa đã hoàn thiện mặt ngoài, tháo dỡ giàn giáo bao che. Sân vườn nội khu bắt đầu trồng cây.'],
+ ['Tháng 8/2026','Thống Nhất Smart City',['tns-bg','tns-int','tns-int2'],'Lễ bàn giao cụm tòa D – E. Cư dân nhận chìa khóa căn hộ hoàn thiện cơ bản.'],
+ ['Tháng 6/2026','Toàn công trường',['ct-1','ct-2','ct-3','ct-5'],'Tập kết gạch block, vệ sinh mặt bằng, thi công hoàn thiện khối đế và tầng hầm.'],
+ ['Tháng 5/2026','Thống Nhất Smart City',['tns-1','tns-2','tns-3'],'Lắp lưới bao che, xây tường bao các tầng trên. Cẩu tháp hoạt động 2 ca.'],
+ ['Tháng 4/2026','Nghiệm thu PCCC',['pccc-2','pccc-4','pccc-5','pccc-6'],'Cảnh sát PCCC tỉnh kiểm tra, nghiệm thu hệ thống chữa cháy khí, sprinkler, cửa chống cháy.'],
+ ['Tháng 4/2025','Đoàn công tác Bộ Xây dựng',['vip-1','vip-2','vip-3'],'Lãnh đạo Bộ Xây dựng kiểm tra tiến độ, chất lượng căn hộ mẫu và làm việc với ban quản lý dự án.'],
+ ['Tháng 3/2025','Cát Tường Smart City Yên Phong',['yp-ct2','yp-ct3','yp-ct6'],'Đổ bê tông sàn bằng bơm cần, thi công phần thân khối nhà ở xã hội.'],
+ ['Tháng 1/2025','Cát Tường Smart City Yên Phong',['yp-air1','yp-air2','yp-air3'],'Thi công móng cọc đồng loạt khu phía Tây, dựng cẩu tháp cho các khối nhà mới.'],
+];
+document.getElementById('diary').innerHTML=D.map(([d,pj,ims,t],k)=>`<div class="chap rv" style="grid-template-columns:200px 1fr;padding:40px 0"><div class="side" style="top:150px"><div class="no">${pj}</div><div style="font-size:26px;font-weight:800;color:var(--blue);margin-top:6px">${d}</div></div>
+<div><p style="color:var(--ink-2);margin-bottom:16px">${t}</p><div class="gal" style="grid-template-columns:repeat(${ims.length},1fr)">${ims.map(i=>`<a href="${I(i)}" data-lb="d${k}" data-cap="${d} · ${pj}" style="aspect-ratio:4/3"><img src="${I(i)}" alt="" loading="lazy"></a>`).join('')}</div></div></div>`).join('');
+ctObserve();
+</script>
+</body>
+</html>
